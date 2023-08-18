@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-<div className="">Hello Spotify</div>
+<div className="">Rülps</div>
   )
 }
