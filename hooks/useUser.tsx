@@ -46,9 +46,32 @@ export const MyUserContextProvider = (props: Props) => {
             (results) => {
                 const userDetailsPromise = results[0];
                 const subscriptionPromise = results[1];
+
+                if (userDetailsPromise.status === "fulfilled") {
+                    setUserDetails(userDetailsPromise.value.data as UserDetails)
+                }
+
+                if (subscriptionPromise.status === "fulfilled") {
+                    setSubscribtion(subscriptionPromise.value.data as Subscription);
+                }
+                
+                setIsLoadingData(false);
             }
            )
+        } else if (!user && !isLoadingUser && !isLoadingData) {
+            setUserDetails(null);
+            setSubscribtion(null);
         }
-    }, []);
+    }, [user, isLoadingUser]);
+
+    const value = {
+        accessToken,
+        user,
+        userDetails,
+        isLoading: isLoadingUser || isLoadingData,
+        subscription
+    };
+
+    return <UserContext.Provider value={value} {...props} />
 
 }
