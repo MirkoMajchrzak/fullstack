@@ -8,6 +8,7 @@ import useUploadModal from "@/hooks/useUploadModal";
 import { Song } from "@/types";
 import React from "react";
 import MediaItem from "./MediaItems";
+import useOnPlay from "@/hooks/useOnPlay";
 
 
 interface LibaryProps {
@@ -20,6 +21,8 @@ const Libary: React.FC<LibaryProps> = ({
     const authModal = useAuthModal();
     const uploadModal = useUploadModal();
     const { user } =useUser();
+
+    const onPlay = useOnPlay(songs);
 
     const onClick = () => {
         if (!user) {
@@ -48,7 +51,7 @@ const Libary: React.FC<LibaryProps> = ({
             <div className="flex flex-col gap-y-2 mt-4 px-3">
                 {songs.map((item) => (
                     <MediaItem
-                    onClick={() => {}}
+                    onClick={(id: string) => onPlay(id)}
                     key={item.id}
                     data={item}
                     />
