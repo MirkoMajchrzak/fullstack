@@ -1,5 +1,6 @@
 "use client";
 
+
 import { Song } from "@/types";
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { HiSpeakerXMark, HiSpeakerWave } from "react-icons/hi2";
@@ -10,6 +11,7 @@ import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
+
 
 interface PlayerContentProps {
     song: Song;
@@ -63,7 +65,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const [play, {pause, sound}] = useSound(
         songUrl,
         {
-            volume: volume,
+            volume: 0.5,
             onplay: () => setIsPlaying(true),
             onend: () => {
                 setIsPlaying(false);
