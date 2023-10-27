@@ -93,7 +93,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({
               disabled={isLoading || price.id === priceIdLoading}
               className="mb-4"
             >
-              {`Subscribe for ${formatPrice(price)} a ${price.interval}`}
+              {`Gönn Dir für ${formatPrice(price)} im ${price.interval}`}
             </Button>
           ))
         })}
@@ -104,15 +104,15 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({
   if (subscription) {
     content = (
       <div className="text-center">
-        Already subscribed.
+        Du bist schon geiler Abonnent.
       </div>
     )
   }
 
   return (
     <Modal
-      title="Only for premium users"
-      description="Listen to music with Spotify Premium"
+      title="Nur für Abonnenten"
+      description="Gönn Dir Premium"
       isOpen={subscribeModal.isOpen}
       onChange={onChange}
     >
