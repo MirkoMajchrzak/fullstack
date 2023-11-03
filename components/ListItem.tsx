@@ -19,7 +19,7 @@ const ListItem: React.FC<ListItemProps> = ({
     const router = useRouter();
 
     const onClick = () => {
-        //Addd authentification before Push
+        //Add authentification before Push
         router.push(href);
     }
     return ( 
